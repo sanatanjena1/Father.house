@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="load.css">
+  <title>Processing Page</title>
+
+
+  <style>
+    /* Custom styles go here */
+
+    body{
+        background: linear-gradient(192deg, #245671 0%, black 100%);
+        animation-name: change;
+        animation-duration: 2s;
+        animation: change 4s infinite;
+    }
+    /* @keyframes change{
+        0%{background-color: rgb(235, 83, 83);}
+        50%{background-color: rgb(223, 223, 124);}
+        100%{background-color: rgb(141, 245, 141);}
+    } */
+    .image-container {
+        cursor: pointer;
+    }
+
+    #imageModal img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    #downloadBtn {
+        display: none;
+    }
+</style>
+
+<link rel="stylesheet" href="styles.css">
+
+</head>
+<body >
+
+  <div class="navbar ">
+  <a href="#" class="icon" onclick="openNav()">&#9776;</a>
+  <a href="video.html">Section 1</a>
+  <a href="#">Section 2</a>
+  <a href="#">Section 3</a>
+  <a href="#">Section 4</a>
+</div>
+
+<div id="mySidenav" class="sidenav">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+  <a href="video.html">Home Video Section</a>
+  <a href="photos.html">Home Photo Section</a>
+  <a href="#">Section 3</a>
+  <a href="#">Section 4</a>
+</div>
+
+<!-- script -->
+<script src="app.js"></script>
+
+  <div class="loading-container">
+    <div class="spinner-border" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+    <p>Please wait while we process your request...</p>
+  </div>
+<br><br>
+
+  <!-- Your main content goes here (hidden while loading) -->
+
+
+
+
+<div class="container mt-5">
+  <div class="row">
+      <!-- Image 1 -->
+      <div class="col-md-4 mb-4">
+          <div class="image-container" onclick="openImageModal('home.com/logo/stellaislandcrete.gif')">
+              <img src="home.com/logo/stellaislandcrete.gif" alt="Image 1" class="img-fluid">
+          </div>
+      </div>
+      <div class="col-md-4 mb-4 col-6 col-lg-3">
+          <div class="image-container" onclick="openImageModal('new2024/img/n3.jpg')">
+              <img src="new2024/img/n3.jpg" alt="Image 1" class="img-fluid">
+          </div>
+      </div>
+      <div class="col-md-4 mb-4 col-6 col-lg-3">
+          <div class="image-container" onclick="openImageModal('new2024/img/n29.jpg')">
+              <img src="new2024/img/n29.jpg" alt="Image 1" class="img-fluid">
+          </div>
+      </div>
+     
+      </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+      <!-- Video Box 1 -->
+      <div class="col-md-4 mb-4 col-6 col-lg-3">
+        <video id="video1" class="w-full h-auto" controls muted>
+          <source src="new2024/video2024/v1.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      <!-- Video Box 1 -->
+      <div class="col-md-4 mb-4 col-6 col-lg-3">
+        <video id="video1" class="w-full h-auto" controls muted>
+          <source src="new2024/video2024/v4.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+      </div>
+    </div>
+
+<!-- Image Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="imageModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+          <div class="modal-body">
+              <img id="modalImage" src="" alt="Modal Image" class="img-fluid">
+              <button id="downloadBtn" class="btn btn-primary mt-3" onclick="downloadImage()">Download Image</button>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS and Popper.js (Required for Bootstrap components) -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  function openImageModal(imageSrc) {
+      const modalImage = document.getElementById('modalImage');
+      const downloadBtn = document.getElementById('downloadBtn');
+
+      modalImage.src = imageSrc;
+      $('#imageModal').modal('show');
+      downloadBtn.style.display = 'block';
+  }
+
+  function downloadImage() {
+      const modalImage = document.getElementById('modalImage');
+      const link = document.createElement('a');
+      link.href = modalImage.src;
+      link.download = 'downloaded-image.jpg';
+      link.click();
+  }
+</script>
+
+
+
+
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script src="load.js"></script>
+</body>
+</html>
