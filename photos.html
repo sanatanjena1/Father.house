@@ -30,7 +30,83 @@
     #toggle-btn i {
       font-size: 1.5rem;
     }
-  </style>
+
+body {
+    background-color: #ffffff;
+    color: #000000;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.dark-mode {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 5px;
+    text-align: center;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+</style>
+
+
+
+
+
 </head>
 <body>
 
@@ -40,9 +116,34 @@
       <div>
         <a href="#" class="navbar-brand"><img src="logo/home2.gif" style="border-radius: 50px;" height="50px" alt=""></a>
       </div>
-      <div>
-        <a href="#" class="navbar-brand"><img src="logo/image_processing20200426-29594-12u1o2s.gif" style="border-radius: 50px;" height="50px" alt=""></a>
-      </div>
+      <!-- -----------Dark Mode Start------------- -->
+
+<div class="container">
+    <label class="switch">
+        <input type="checkbox" id="dark-mode-toggle">
+        <span class="slider"><i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i></span>
+    </label>
+  </div>
+  <script>const darkModeToggle = document.getElementById('dark-mode-toggle');
+    const body = document.body;
+    
+    darkModeToggle.addEventListener('change', () => {
+        body.classList.toggle('dark-mode');
+    });
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            darkModeToggle.classList.add('scroll-active');
+        } else {
+            darkModeToggle.classList.remove('scroll-active');
+        }
+    });
+    </script>
+  
+  
+  
+  <!-- ----------Dark Mode End----------- -->
       <div class="d-flex align-items-center">
         <div id="search-bar">
           <!-- <input type="text" placeholder="Search"> -->
@@ -61,7 +162,6 @@
 
 
 <hr><hr><br>
-<a href="darkmode.html">Mode</a>
 
 <div class="container mt-5">
     <div class="row">
